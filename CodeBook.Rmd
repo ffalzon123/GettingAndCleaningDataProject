@@ -40,8 +40,6 @@ This is a consolidation of the **Human Activity Recognition Using Smartphones Da
 
 -- Load the Train data from UCI HAR Dataset directory "Train/subject_Train.txt", "Train/X_Train.txt", "Train/y_Train.txt"
 
-- Set column names of data tables
-
 -- Format the Train data set
 
 - Set column names of data tables
@@ -66,9 +64,11 @@ This is a consolidation of the **Human Activity Recognition Using Smartphones Da
 
 - write the result to the text file "SummarizedHARData.txt"
 
+
+#SummarizedHARData.txt
+
 Mean and Standard deviation data from Test and Training data has been merged, and summarized to give the mean of these measurements.
 Measurements 3 to 88 are the normalized and bounded within [-1,1]
-
 
 The data set contains 180 obs. of  88 variables
 
