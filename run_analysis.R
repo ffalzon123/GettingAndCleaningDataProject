@@ -112,6 +112,6 @@ dtCombinedVolunteerData$Subject <- as.factor(dtCombinedVolunteerData$Subject)
 ############################################################
 dtSummarizeData <- dtCombinedVolunteerData[, lapply(.SD, base::mean, na.rm=TRUE), by=c("Activity","Subject") ]
 
-# write the result to the text file "TidyDataSet.txt"
-write.table(dtSumarizeData, file = "SummarizedHARData.txt", row.names = FALSE)
+# write the result to the text file "SummarizedHARData.txt"
+write.table(dtSummarizeData, file = "SummarizedHARData.txt", row.names = FALSE)
 
