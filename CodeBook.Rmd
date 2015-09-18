@@ -13,14 +13,13 @@ This is a consolidation of the **Human Activity Recognition Using Smartphones Da
 
 -- Initalize environment 
 
-
 - Clear Objects from current working directory
 
-- load required packages
+- load required packages data.table, dplyr
 
--- Load the Test Activity Labels and Feature from UCI HAR Dataset directory 
+-- Load the Test Activity Labels and Feature from UCI HAR Dataset directory "activity_labels.txt", features.txt"
 
--- Load the Test data from UCI HAR Dataset directory 
+-- Load the Test data from UCI HAR Dataset directory "Test/subject_Test.txt", "Test/X_Test.txt", "Test/y_Test.txt"
 
 -- Format the Test data set
 
@@ -39,7 +38,7 @@ This is a consolidation of the **Human Activity Recognition Using Smartphones Da
 
 - Remove ActivityId column as it is not required
 
--- Load the Train data from UCI HAR Dataset directory 
+-- Load the Train data from UCI HAR Dataset directory "Train/subject_Train.txt", "Train/X_Train.txt", "Train/y_Train.txt"
 
 - Set column names of data tables
 
