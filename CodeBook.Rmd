@@ -9,6 +9,64 @@ output: html_document
 This is a consolidation of the **Human Activity Recognition Using Smartphones Data Set**
 <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones>
 
+# Steps to transform UCI HAR Dataset into the tidy data set "SummarizedHARData.txt"
+
+-- Initalize environment 
+
+
+- Clear Objects from current working directory
+
+- load required packages
+
+-- Load the Test Activity Labels and Feature from UCI HAR Dataset directory 
+
+-- Load the Test data from UCI HAR Dataset directory 
+
+-- Format the Test data set
+
+
+- Set column names of data tables
+
+- Filter data to return only mean and standard variation values
+
+- Combine dtSubjectTest and dtXTest, and label the first column "Subject"
+
+- Combine dtYTest and dtCombinedTest, and label the first column "ActivityId"
+
+- set key in dtCombinedTest and dtActivityLabels
+
+- Replace Activity identifier with the activity name
+
+- Remove ActivityId column as it is not required
+
+-- Load the Train data from UCI HAR Dataset directory 
+
+- Set column names of data tables
+
+-- Format the Train data set
+
+- Set column names of data tables
+
+- Filter data to return only mean and standard variation values
+
+- Combine dtSubjectTrain and dtXTrain, and label the first column "Subject"
+
+- Combine dtYTrain and dtCombinedTrain, and label the first column "ActivityId"
+
+- set key in dtCombinedTrain and dtActivityLabels
+
+- Replace Activity identifier with the activity name
+
+- Remove ActivityId column as it is not required
+
+-- Combine the Test and Train data sets
+
+- coerce Activity and Subject in Factors
+
+-- Summarize the tidy data to give the average of each variable for each activity and each subject
+
+- write the result to the text file "SummarizedHARData.txt"
+
 Mean and Standard deviation data from Test and Training data has been merged, and summarized to give the mean of these measurements.
 Measurements 3 to 88 are the normalized and bounded within [-1,1]
 
