@@ -59,10 +59,6 @@ dtLabelledCombinedTest <- merge(dtActivityLabels,dtCombinedTest)
 # Remove ActivityId column as it is not required
 dtLabelledCombinedTest <- select(dtLabelledCombinedTest, -ActivityId)
 
-# Add new column 'Volunteer-Group' to dtLabelledCombinedTest to indicate this is from the 'Test' data set
-dtLabelledCombinedTest <- mutate(dtLabelledCombinedTest, VolunteerGroup = "TEST")
-dtLabelledCombinedTest <- cbind(dtLabelledCombinedTest[,89, with = FALSE],dtLabelledCombinedTest[,1:88, with = FALSE])
-
 ############################################################
 # Load the Train data from UCI HAR Dataset directory 
 ############################################################
@@ -102,13 +98,20 @@ dtLabelledCombinedTrain <- merge(dtActivityLabels,dtCombinedTrain)
 # Remove ActivityId column as it is not required
 dtLabelledCombinedTrain <- select(dtLabelledCombinedTrain, -ActivityId)
 
-# Add new column 'Volunteer-Group' to dtLabelledCombinedTrain to indicate this is from the 'Train' data set
-dtLabelledCombinedTrain <- mutate(dtLabelledCombinedTrain, VolunteerGroup = "TRAIN")
-dtLabelledCombinedTrain <- cbind(dtLabelledCombinedTrain[,89, with = FALSE],dtLabelledCombinedTrain[,1:88, with = FALSE])
-
 ############################################################
-#Combine the Test and Train data sets
+# Combine the Test and Train data sets
 ############################################################
 dtCombinedVolunteerData <- rbind(dtLabelledCombinedTest,dtLabelledCombinedTrain)
 
+# coerce Activity and Subject in Factors
+dtCombinedVolunteerData$Activity <- as.factor(dtCombinedVolunteerData$Activity)
+dtCombinedVolunteerData$Subject <- as.factor(dtCombinedVolunteerData$Subject)
+
+############################################################
+# Summarize the tidy data to give the average of each variable for each activity and each subject
+############################################################
+dtSummarizeData <- dtCombinedVolunteerData[, lapply(.SD, base::mean, na.rm=TRUE), by=c("Activity","Subject") ]
+
+# write the result to the text file "TidyDataSet.txt"
+write.table(dtSumarizeData, file = "SummarizedHARData.txt", row.names = FALSE)
 
