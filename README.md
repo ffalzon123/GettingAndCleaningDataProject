@@ -8,3 +8,4 @@ and it produces the tidy data set SummarizedHARData.txt
 
 - SummarizedHARData.txt - This is the resultant data set
 
+Note: as there were confilting instructions on whether the transformation instructions should be in this read me file, or in the codebook, I decided to place them in the code book.
