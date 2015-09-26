@@ -9,6 +9,7 @@ rm(list = ls())
 ## load required packages
 library(data.table)
 library(dplyr)
+library(stringr)
 
 
 ############################################################
@@ -20,6 +21,16 @@ setnames(dtActivityLabels,c("ActivityId", "Activity"))
 
 dtFeatures <- fread("features.txt", header = FALSE)
 dtFeatures[,V2:= make.names(V2)]
+
+#reformat feature names
+
+dtFeatures$V2 <- str_replace_all(dtFeatures$V2, "[[:punct:]]", "")
+dtFeatures[,V2:= sub("std","Std",V2)]
+dtFeatures[,V2:= sub("mean","Mean",V2)]
+dtFeatures[,V2:= sub("angle","Angle",V2)]
+dtFeatures[,V2:= sub("^t","Time",V2)]
+dtFeatures[,V2:= sub("^f","Frequency",V2)]
+
 
 
 ############################################################
